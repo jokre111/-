@@ -1,43 +1,2307 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<meta charset="utf-8"/>
+		<meta charset="utf-8">
 		<title></title>
-		<script src="../js/jquery-3.1.1.js"></script>
-		<script src="../js/boke.js"></script>
-		<link type="text/css" href="../css/boke.css" rel="stylesheet" />
-	</head>
-	<style type="text/css">
-		.wrap{
-			width: 500px;
-			margin: 0 auto;
-		}
-	    .jianli{
-	    	text-align: center;
-	    	font-size: 3em;
-	    	color: gray;
-	    }
-	    hr{
-	    	margin: 10px auto;
-	    }
-	    .name{
-	    	color: darkcyan;
-	    	text-align: center;
-	    }
-	</style>
-	<body>
-		<div class="wrap">
-		<div class="jianli">简历</div>
-		<hr />
-		<div class="name">姓名：杭程</div>
-		<hr />
 		
+		<script src="../js/jquery-3.1.1.js"></script>
+		
+		<style type="text/css" >
+		    *{
+		    	margin: 0;
+		    	padding: 0;
+		    }
+		    html{
+		    	font-family: PingFangSC-Light,'helvetica neue','hiragino sans gb',arial,'microsoft yahei ui','microsoft yahei',simsun,sans-serif;
+		    	font-size: 14px;
+		    }
+			.header{
+			    width: 100%;
+			    background-color: rgb(23,112,230);
+			}
+			.header_one{
+				position: relative;
+				width: 1190px;
+				height: 60px;
+				margin: 0 auto;
+			}
+			.header .header_one_left_list li{
+				float: left;
+				display: inline-block;
+				line-height: 60px;
+				font-size: 14px;
+				color: #fff;
+				padding: 0 15px;
+			}
+			.header .header_one_left_list li:hover{
+				color: #0e8bff;
+				cursor: pointer;
+			}
+			.header .header_one_left_list li:first-child{
+				position: relative;
+			}
+			.header .header_one_left_list i{
+				position: absolute;
+				top:15px;
+				left: -20px;
+				display: inline-block;
+				background-image: url(../images/2.png);
+				height: 26px;
+				width: 30px;
+			}
+			.header .header_one_right_list li{
+				float: left;
+				display: inline-block;
+				line-height: 60px;
+				color: #fff;
+				font-size: 12px;
+				padding: 0 15px;
+			}
+			.header_one_right_list ul:first-child i{
+				display: inline-block;
+			}
+			.header_one_right{
+				float: right;
+			}
+			.header_one_left{
+				float: left;
+			}
+			.header .header_one_right_list li:hover{
+				color: #0e8bff;
+				cursor: pointer;
+			}
+			.header_one_right_list ul li:nth-child(4) i{
+				width: 0
+				height: 0;
+				border-width: 4px;
+				border-style: solid dashed dashed;
+				border-color: #fff transparent transparent;
+				position: absolute;
+				top: 30px;
+				right: 5px;
+			}
+			.header_one_right_list ul li:nth-child(4){
+				position: relative;
+			}
+			.header_one_right_list ul li:last-child span{
+				display: inline-block;
+				border: 1px solid rgba(255,255,255,.1);
+				padding: 0 20px;
+				transition: background-color .15s;
+			}
+			.header_one_right_list ul li:last-child span:hover{
+				background-color: rgb(0,104,239);
+				color: #fff;
+			}
+			.folder:before{
+				content: '';
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 0;
+				background: transparent;
+				transition: height .2s,background-color;.2s
+			}
+			.folder_one:before{
+				height: 60px;
+				background-color: #202124;
+				transition-timing-function: ease;
+			}
+			.picture_area{
+				position: relative;
+				width: 100%;
+				height: 500px;
+			}
+			.picture_area_one{
+				z-index: 1;
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				background: url(https://mc.qcloudimg.com/static/img/f69a2c3ec8bcf6c844b9cec72aa86a4f/image.png);
+				background-size: 1920px 500px;
+				background-position: top center;
+			}
+			.picture_area_one a{
+				display: block;
+				color: #fff;
+				font-size: 20px;
+				width: 192px;
+				height: 43px;
+				line-height: 43px;
+				text-decoration: none;
+				border-radius: 2px;
+				position: absolute;
+				bottom: 24%;
+				left: 45.5%;
+				border: 1px solid #fff;
+				text-align: center;
+			}
+			.picture_area_one a:hover{
+				background: #fff;
+				color: rgb(23,112,230);
+				cursor: pointer
+			}
+			.picture_area ul{
+				z-index: 10;
+				display: block;
+				list-style: none;
+				width: 100%;
+				text-align: center;
+				position: absolute;
+				bottom: 5%;
+				left: -20px;
+			}
+			.picture_area li{
+				display: inline-block;
+			}
+			.picture_area ul a{
+				text-decoration: none;
+				display: inline-block;
+				width: 15px;
+				height: 5px;
+				background: rgba(255,255,255,.3);
+				margin:  0 3px;
+			}
+			.picture_area ul a:hover{
+				cursor: pointer;
+			}
+			.selected{
+				background: #fff!important;
+			}
+			.picture_area_two{
+				background: url(https://mc.qcloudimg.com/static/img/bd1326867a5a63b2c1e6521ee6898f7a/image.jpg);
+				background-size: 1920px 500px;
+				background-position: top center;
+				background-repeat: no-repeat;
+				width: 100%;
+				height: 100%;
+				position: absolute;
+				top: 0;
+				left: 0;
+				transition: all .5s
+			}
+			.picture_area_two h2{
+				font-size: 56px;
+				font-weight: 400;
+				color: #fff;
+				margin-bottom: 10.5px;
+			}
+			.picture_area_two p{
+				display: block;
+				font-size: 20px;
+				color: #fff;
+				line-height: 20px;
+			}
+			.picture_area_two>div{
+				position: absolute;
+				top: 17%;
+				left: 29%;
+			}
+			.picture_area_two a{
+				display: block;
+				color: #fff;
+				font-size: 20px;
+				border: 1px solid #fff;
+				width: 192px;
+				height: 43px;
+				line-height: 43px;
+				text-align: center;
+				border-radius: 2px;
+				margin-top: 100px;
+			}
+			.picture_area_two a:hover{
+				cursor: pointer;
+				background: #fff;
+				color: rgb(9,108,235);
+			}
+			.picture_area_three{
+				position: absolute;
+				top: 0;
+				left: 0;
+				background: url(https://mc.qcloudimg.com/static/img/be8e9bfc3f27cde665a856a104372b74/image.png);
+				background-size: 1920px 500px;
+				background-position: top center;
+				width: 100%;
+				height: 100%;
+			}
+			.picture_area_three a{
+				color: #fff;
+				display: block;
+				font-size: 20px;
+				border: 1px solid #fff;
+				width: 192.4px;
+				height: 43px;
+				line-height: 43px;
+				text-align: center;
+				border-radius: 2px;
+				position: absolute;
+				bottom: 24%;
+				left: 45.3%;
+			}
+			.picture_area_three a:hover{
+				cursor: pointer;
+				background: #fff;
+				color: rgb(26,28,36);
+			}
+			.picture_area_four{
+				position: absolute;
+				top: 0;
+				left: 0;
+				background: url(https://mc.qcloudimg.com/static/img/af16fc93031702c9f815ece4acd02268/image.jpg);
+				background-size: 1920px 500px;
+				background-position: top center;
+				width: 100%;
+				height: 100%;
+			}
+			.picture_area_four h2{
+				font-size: 56px;
+				font-weight: 400;
+				color: #fff;
+				margin-bottom: 10.5px;
+			}
+			.picture_area_four p{
+				display: block;
+				font-size: 20px;
+				color: #fff;
+				line-height: 20px;
+			}
+			.picture_area_four>div{
+				position: absolute;
+				top: 17%;
+				left: 29%;
+			}
+			.picture_area_four a{
+				display: block;
+				color: #fff;
+				font-size: 20px;
+				border: 1px solid #fff;
+				width: 192px;
+				height: 43px;
+				line-height: 43px;
+				text-align: center;
+				border-radius: 2px;
+				margin-top: 100px;
+			}
+			.picture_area_four a:hover{
+				cursor: pointer;
+				background: #fff;
+				color: rgb(9,108,235);
+			}
+			.picture_area_five{
+				position: absolute;
+				top: 0;
+				left: 0;
+				background: url(https://mc.qcloudimg.com/static/img/c9b4f34829a35ed3c20e6047fbeb12f5/image.jpg);
+				background-size: 1920px 500px;
+				background-position: top center;
+				width: 100%;
+				height: 100%;
+			}
+			.picture_area_five h2{
+				font-size: 56px;
+				font-weight: 400;
+				color: #fff;
+				margin-bottom: 10.5px;
+			}
+			.picture_area_five p{
+				display: block;
+				font-size: 20px;
+				color: #fff;
+				line-height: 20px;
+			}
+			.picture_area_five>div{
+				position: absolute;
+				top: 17%;
+				left: 29%;
+			}
+			.picture_area_five a{
+				display: block;
+				color: #fff;
+				font-size: 20px;
+				border: 1px solid #fff;
+				width: 192px;
+				height: 43px;
+				line-height: 43px;
+				text-align: center;
+				border-radius: 2px;
+				margin-top: 100px;
+			}
+			.picture_area_five a:hover{
+				cursor: pointer;
+				background: #fff;
+				color: rgb(0,104,239);
+			}
+			.choice1{
+				z-index: 2;
+				display: block;
+				position: absolute;
+				opacity: 0;
+				top: 42%;
+				left: 23%;
+				font-size: 0;
+				width: 22px;
+				height: 41px;
+				overflow: hidden;
+				background: url(https://imgcache.qq.com/open_proj/proj_qcloud_v2/gateway/portal/css/sprite/index-201703161500.png);
+				background-position: -252px -79px;
+				transition: opacity .2s;
+			}
+			.choice2{
+				z-index: 2;
+				display: block;
+				opacity: 0;
+				position: absolute;
+				top: 42%;
+				left: 74%;
+				font-size: 0;
+				width: 22px;
+				height: 41px;
+				overflow: hidden;
+				background: url(https://imgcache.qq.com/open_proj/proj_qcloud_v2/gateway/portal/css/sprite/index-201703161500.png);
+				background-position: -105px -158px;
+				transition: opacity .4s;
+			}
+			.header:hover .choice1{
+				opacity: 1;
+			}
+			.header:hover .choice2{
+				opacity: 1;
+			}
+			a:hover{
+				cursor: pointer;
+			}
+			.header_one_left_list{
+				height: 100%;
+			}
+			.middle_one_core_list:after{
+				content: '';
+				display: block;
+				clear: both;
+				zoom:1
+			}
+			.middle_one{
+			    width:100%;
+			    height: 140px;
+			}
+			.middle_one_core{
+				font-size: 0;
+				display: block;
+				width: 1200px;
+				height: 100%;
+				margin: 0 auto;
+				
+			}
+			.middle_one_core_list li{
+				position: relative;
+				box-sizing: border-box;
+				padding: 15px 0 0 15px;
+				float: left;
+				width: 300px;
+				height: 140px;
+			}
+			.middle_one_core_list li:after{
+				content: '';
+				display: block;
+				height: 80px;
+				border-left: 1px solid #e2e2e2;
+				position: absolute;
+				top: 30px;
+				left: 0;
+			}
+			.middle_one_core_list li a{
+				display: block;
+				height: 100%;
+				width: 100%;
+			}
+			.advertising_icon{
+				transition: all .2s linear;
+				vertical-align: middle;
+				display: inline-block;
+				margin-right: 5px;
+				width: 110px;
+				height: 110px;
+				background: url(https://mc.qcloudimg.com/static/img/4bffa77ee56c7d3927e54568a18f1005/image.png);
+			}
+			.middle_one_core_list1:hover .advertising_icon{
+				transform: translate3d(2px,-2px,0);
+			}
+			.middle_one_core_list1:hover .advertising_text p:first-child{
+				color: #2277da;
+			}
+			.advertising_text{
+				transition: all .2s linear;
+				vertical-align: middle;
+				display: inline-block;
+				width: 134px;
+				height: 43px;
+			}
+			.advertising_text p:first-child{
+				font-size: 16px;
+				color: #333;
+				padding-bottom: 5px;
+			}
+			a{
+				text-decoration: none;
+			}
+			li{
+				list-style: none;
+			}
+			.advertising_icon_two{
+				transition: all .2s linear;
+				vertical-align: middle;
+				display: inline-block;
+				margin-right: 5px;
+				width: 110px;
+				height: 110px;
+				background: url(https://mc.qcloudimg.com/static/img/86cb00a10211cc8177a9f04126e884d5/image.png);
+			}
+			.middle_one_core_list1:hover .advertising_icon_two{
+				transform: translate3d(2px,-2px,0);
+			}
+			.middle_one_core_list1:hover .advertising_text p:first-child{
+				color: #2277da;
+			}
+			.advertising_icon_three{
+				transition: all .2s linear;
+				vertical-align: middle;
+				display: inline-block;
+				margin-right: 5px;
+				width: 110px;
+				height: 110px;
+				background: url(https://mc.qcloudimg.com/static/img/99355b481b62cf0f893553ddfddcd0f7/image.png);
+			}
+			.middle_one_core_list1:hover .advertising_icon_three{
+				transform: translate3d(2px,-2px,0);
+			}
+			.middle_one_core_list1:hover .advertising_text p:first-child{
+				color: #2277da;
+			}
+			.advertising_icon_four{
+				transition: all .2s linear;
+				vertical-align: middle;
+				display: inline-block;
+				margin-right: 5px;
+				width: 110px;
+				height: 110px;
+				background: url(https://mc.qcloudimg.com/static/img/7413b31aba0c50277e76d8f8f74a11b4/image.png);
+			}
+			.middle_one_core_list1:hover .advertising_icon_four{
+				transform: translate3d(2px,-2px,0);
+			}
+			.middle_one_core_list1:hover .advertising_text p:first-child{
+				color: #2277da;
+			}
+			/*.advertising_icon_new{
+				font-size: normal;
+				margin-left: 5px;
+				margin-top: -3px;
+				width: 29px;
+				height: 13px;
+				display: inline-block;
+				vertical-align: middle;
+				background-image: -webkit-image-set(url(sprite/index-201703161500-svg.png)1x,url(sprite/index-201703161500.svg) 2x);
+				background-position: 97.16% 83.74000000000001%;
+				background-size: 586.2068965517241% 1046.1538461538462%;
+				background-repeat: no-repeat;
+			}*/
+			.advertising_content{
+				font-size: 14px;
+				color: #666;
+			}
+			.middle_one_core_list li:first-child:after{
+				display: none;
+			}
+			.middle_two{
+				height: 785px;
+				background-color: #f2f2f5;
+				background-image: url(https://imgcache.qq.com/open_proj/proj_qcloud_v2/gateway/portal/css/img/home/mod-bg.png);
+				background-position: top center;
+				background-repeat: no-repeat;
+				padding: 100px 0;
+			}
+			.middle_two_middle{
+				width: 1200px;
+				height: 585px;
+				margin: 0 auto;
+			}
+			.page_one{
+				width: 100%;
+				padding: 0 10px;
+			}
+			.page_one h2{
+				font-size: 30px;
+				font-weight: 400;
+				margin-bottom: 10px;
+				display: block;
+			}
+			.page_one p{
+				font-size: 18px;
+				line-height: 1.5em;
+			}
+			
+			.middle_two_middle .page_two{
+				font-size: 0;
+				margin-top: 60px;
+				width: 1200px;
+				height: 450px;
+			}
+			.mysteryone{
+				overflow: hidden;
+				vertical-align: top;
+				display: inline-block;
+				width: 16.6667%;
+				background: #fff;
+				height: 400px;
+				box-sizing: border-box;
+				padding: 0 10px 40px 10px;
+				border-top: 4px solid #d9d9d9;
+				border-right: 1px solid #d9d9d9;
+				transition: all .3s ease;
+				position: relative;
+			}
+			.mysteryone.mysteryonee{
+				width: 33.3333%;
+				height: 484px;
+				margin-top: -30px;
+				border-top: 4px solid #2277e6;
+				border-left: 1px solid #2277e6;
+				border-right: 1px solid #2277e6;
+				border-bottom: 1px solid #2277e6;
+				padding-bottom: 20px;
+				box-shadow: 0 3px 20px rgba(0,0,0,.1);
+			}
+			/*.mysterytwo{
+				vertical-align: top;
+				display: inline-block;
+				width: 16.67%;
+				background: green;
+				height: 400px;
+				box-sizing: border-box;
+				padding: 0 10px 40px 10px;
+				border-top: 4px;
+				border-right: 1px;
+				transition: all .3s ease;
+			}
+			.mysterytwo.mysteryonee{
+				width: 33%;
+				height: 484px;
+				margin-top: -30px;
+				border-top: 4px solid #2277e6;
+				border-left: 1px solid #2277e6;
+				border-right: 1px solid #2277e6;
+				border-bottom: 1px solid #2277e6;
+				padding-bottom: 20px;
+				box-shadow: 0 3px 20px rgba(0,0,0,.1);
+			}*/
+			.yyone{
+			   width: 100%;
+			   height: 100%;
+			   position: absolute;
+			   top: 0;
+			   left: 0;
+			}
+			.yyoneone{
+				text-align: left;
+				position: relative;
+				opacity: 0;
+				width: 397.98px;
+				height: 100%;
+				margin-left: -10px;
+			}
+			.mysteryonee .yyone{
+				opacity: 0;
+			}
+			.mysteryonee .yyoneone{
+				opacity: 1;
+			}
+			.yyoney span{
+				display: block;
+				width: 32px;
+				height: 32px;
+				margin: 0 auto 15px;
+				background-image: url(https://imgcache.qq.com/open_proj/proj_qcloud_v2/gateway/portal/css/sprite/index-201703161500-svg.png);
+				background-position: 25.36% 33.650000000000006%;
+				background-size: 531.25% 425%;
+				background-repeat: no-repeat;
+			}
+			.yyoney{
+			    padding: 30px 0;
+			    text-align: center;
+			    position: relative;
+			}
+			.yyoney:after{
+				content: '';
+				background: #d9d9d9;
+				width: 40px;
+				height: 1px;
+				position: absolute;
+				left: 40%;
+				bottom: 0;
+			}
+			.yyoney h3{
+				font-size: 18px;
+				color: #000;
+				font-weight: 400;
+				display: block;
+			}
+			.yyoneyy{
+				margin-top: 25px;
+			}
+			.yyoneyy ul{
+				display: block;
+				height: 200px;
+			}
+			   
+			.yyoneyy li{
+				display: list-item;
+				height: 42px;
+				font-size: 14px;
+				text-align: center;
+				color: #666;
+				line-height: 42px;
+				
+			}
+			.yyoneyy li span{
+				font-size: 12px;
+				color: #ff7200;
+				margin-left: 3px;
+				line-height: 42px;
+				display: inline-block;
+			}
+			.tableone span{
+				background: url(https://imgcache.qq.com/open_proj/proj_qcloud_v2/gateway/portal/css/sprite/index-201703161500-svg.png);
+				background-size: 531.25% 425%;
+				background-position: 0.72% 33.65%;
+				background-repeat: no-repeat;
+				display: inline-block;
+				width: 32px;
+				height: 32px;
+				margin-right: 10px;
+				vertical-align: middle;
+			}
+			.tableone{
+				padding: 20px 0;
+				margin: 0 15px;
+				border-bottom: 1px solid #d9d9d9;
+			}
+			.tabletwo{
+				margin-top: 10px;
+			}
+			.tableone h3{
+				vertical-align: middle;
+				color: #2277e6;
+				font-size: 18px;
+				font-weight: 400;
+				display: inline-block;
+			}
+			.tabletwo li{
+				display: list-item;
+				padding: 5px 20px 8px;
+			}
+			.listoneone{
+				font-weight: 400;
+				font-size: 14px;
+				
+				line-height: 31px;
+				color: #000;
+			}
+			.listonetwo p{
+				font-size: 14px;
+				color: #666;
+				line-height: 1.5;
+				margin-right: 33%;
+			}
+			.listonetwo{
+				
+			}
+			.listonetwo div{
+				float: right;
+			}
+			.listonetwo span{
+				font-size: 14px;
+				color: #ff7200;
+			}
+			.listonetwo a{
+				display: none;
+				border: 1px solid #2277e6;
+				color: #2277e6;
+				margin-top: -7px;
+				font-size: 12px;
+				padding: 0 20px;
+				line-height: 26px;
+				cursor: pointer;
+				text-align: center;
+				transition: background-color .3s;
+				border-radius: 2px;
+			}
+			.listonetwo a:hover{
+				color: #fff;
+				background: #2277e6;
+			}
+			.listone{
+				height: 73px;
+			}
+			.listone:hover a{
+				display: inline-block;
+			}
+			.listone:hover .listonetwo span{
+				display: none;
+			}
+			.listone:hover{
+				background: #f0f2f5;
+				cursor: pointer;
+			}
+			.esc{
+				display: block;
+				font-size: 14px;
+				color: #2277e6;
+				margin: 0 20px;
+				padding-top: 5px;
+			}
+			.esc:hover{
+				text-decoration: underline;
+			}
+			.middlewrap{
+				padding: 95px 0 83px;
+				position: relative;
+				height: 775px;
+			}
+			.middlewrap_pic{
+				transition: background-image 0.3s ease-in;
+				background-image: url(https://imgcache.qq.com/open_proj/proj_qcloud_v2/gateway/portal/css/img/home/solution/video/bg.jpg);
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background-repeat: no-repeat;
+				background-size : cover;
+				z-index: 1;
+			}
+			.middlewrap_pic.pineapple{
+				background-image: url(https://imgcache.qq.com/open_proj/proj_qcloud_v2/gateway/portal/css/img/home/solution/game/bg.jpg);
+			}
+			.middlewrap_con{
+				position: relative;
+				width: 1200px;
+				height: 595px;
+				margin: 0 auto;
+				z-index: 2;
+			}
+			.middlewrap_con_one{
+				margin: 0 20px;
+				color: #fff;
+			}
+			.middlewrap_con_one h2{
+				font-size: 30px;
+				font-weight: 400;
+				margin-bottom: 10px;
+			}
+			.middlewrap_con_one div{
+				font-size: 18px;
+				line-height: 1.5em;
+			}
+			.middlewrap_con_two{
+				width: 1180px;
+				height: 460px;
+				margin: 60px 10px 0;
+			}
+			.middlewrap_list{
+				border-right: 1px solid rgba(255,255,255,.3);
+				display: inline-block;
+				width: 16%
+			}
+			.middlewrap_list ul{
+				display: block;
+			}
+			.middlewrap_list a{
+				color: #fff;
+				display: inline-block;
+				font-size: 18px;
+				width: 77%;
+				line-height: 46px;
+				text-align: center;
+				transition: background-color .2s ease
+			}
+			/*.middlewrap_list a:hover{
+				background: #2277da;
+				color: #fff;
+			}*/
+			.middlewrap_tt{
+				width: 83%;
+				height: 100%;
+				display: inline-block;
+				vertical-align: top;
+				padding-left: 49px;
+				box-sizing: border-box;
+			}
+			.middlewrap_t1{
+				display: block;	
+			}
+			.middlewrap_t2{
+				display: none;
+			}
+		    .pppp{
+				margin-top: 40px;
+				margin-bottom: 60px;
+		    }
+			.pppp li{
+				display: inline-block;
+				width: 14%;
+				background-color: #fff;
+				background: rgba(255,255,255,.3);
+				margin-right: 2%;
+				border: 1px solid rgba(255,255,255,.2);
+			}
+			.pppp li:hover{
+				cursor: pointer;
+				background: rgba(255,255,255,.5);
+			}
+			.pppp li:nth-child(1){
+				width: 120px;
+				height: 120px;
+			    background-image: url(https://mc.qcloudimg.com/static/img/2d570567743748b42fc99cb9e955461c/image.png);
+			    background-position: center;
+				padding: 0 3px;
+			}
+			.pppp li:nth-child(2){
+				width: 120px;
+				height: 120px;
+			    background-image: url(https://mc.qcloudimg.com/static/img/00ec1af54a258252d4bfd6212b9a9e71/image.png);
+			    background-position: center;
+				padding: 0 3px;
+			}
+			.pppp li:nth-child(3){
+				width: 120px;
+				height: 120px;
+			    background-image: url(https://mc.qcloudimg.com/static/img/7191941f436b4229bdb5f52ed9480063/image.png);
+			    background-position: center;
+				padding: 0 3px;
+			}
+			.pppp li:nth-child(4){
+				width: 120px;
+				height: 120px;
+			    background-image: url(https://mc.qcloudimg.com/static/img/08b414eab8daa60e98092a1c9337cf3f/image.png);
+			    background-position: center;
+				padding: 0 3px;
+			}
+			.pppp li:nth-child(5){
+				width: 120px;
+				height: 120px;
+			    background-image: url(https://mc.qcloudimg.com/static/img/d5b7d8a4b2c50a6e3682d93c97b6250f/image.png);
+			    background-position: center;
+				padding: 0 3px;
+			}
+			.pppp li:nth-child(6){
+				width: 120px;
+				height: 120px;
+			    background-image: url(https://mc.qcloudimg.com/static/img/a321b9fb6adefafe31ea3c77e6be673b/image.png);
+			    background-position: center;
+				padding: 0 3px;
+			}
+			.middlewrap_t2{
+			}
+			.middlewrap_t2t{
+				margin-bottom: 30px;
+			}
+			.middlewrap_t2m{
+				font-size: 14px;
+				line-height: 30px;
+				color: rgba(255,255,255,.8);
+			}
+			.middlewrap_t2b{
+				display: block;
+				margin-top: 30px;
+				border: 1px solid rgba(255,255,255,.4);
+				padding: 0 20px;
+				border-radius: 2px;
+				width: 70px;
+				line-height: 32px;
+				text-align: center;
+				color: #fff;
+				transition: background-color .15s
+			}
+			.middlewrap_t2b:hover{
+				background: #2277de;
+				border-color: #2277de
+			}
+			#apple1{
+				width: 120px;
+				height: 120px;
+			    background-image: url(https://mc.qcloudimg.com/static/img/2f435c8e2012694b7a499642bcf82d96/image.png);
+			    background-position: center;
+				padding: 0 3px;
+			}
+			#apple2{
+				width: 120px;
+				height: 120px;
+			    background-image: url(https://mc.qcloudimg.com/static/img/2aeb5940590ebd7f4dcbbdc69f09b2d0/image.png);
+			    background-position: center;
+				padding: 0 3px;
+			}
+			#apple3{
+				width: 120px;
+				height: 120px;
+			    background-image: url(https://mc.qcloudimg.com/static/img/b604677b5c48393c7a8ac381f84f1a60/image.png);
+			    background-position: center;
+				padding: 0 3px;
+			}
+			#apple4{
+				width: 120px;
+				height: 120px;
+			    background-image: url(https://mc.qcloudimg.com/static/img/e621889b89bcbeb2119432a4a8dd7caf/image.png);
+			    background-position: center;
+				padding: 0 3px;
+			}
+			#apple5{
+				width: 120px;
+				height: 120px;
+			    background-image: url(https://mc.qcloudimg.com/static/img/86e26108cf0e144b1b1b3787dd3a32e2/image.png);
+			    background-position: center;
+				padding: 0 3px;
+			}
+			#apple6{
+				width: 120px;
+				height: 120px;
+			    background-image: url(https://mc.qcloudimg.com/static/img/f3235c6930d5f88a4a671de79e4623fe/image.png);
+			    background-position: center;
+				padding: 0 3px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="header">
+			<div class="folder" id="folder">
+			<div class="header_one" id="header_one">
+				<div class="header_one_left">
+					<div class="header_one_left_list">
+						<ul>
+							<li><i></i><a>云产品</a></li>
+							<li><a>解决方案</a></li>
+							<li><a>云市场</a></li>
+							<li><a>合作与生态</a></li>
+							<li><a>文档与支持</a></li>
+						</ul>
+					</div>
+				</div>
+				<div class="header_one_right">
+					<div class="header_one_right_list">
+						<ul>
+							<li><a>English</a></li>
+							<li><a>免费体验</a></li>
+							<li><a>备案</a></li>
+							<li><a>10086</a><i></i></li>
+							<li><a><span>管理中心</span></a></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			</div>
+			<div class="picture_area">
+				<div class="picture_area_one cucumber">
+					<a>查看详情</a>
+				</div>
+				<div class="picture_area_two cucumber">
+					<div>
+						<h2>云函数开放公测</h2>
+						<p>免费构建您的第一个Serverless应用</p>
+						<a>立即体验</a>
+					</div>
+				</div>
+				<div class="picture_area_three cucumber">
+					<a>立即申请</a>
+				</div>
+				<div class="picture_area_four cucumber">
+					<div>
+						<h2>德国法兰克福新区上线</h2>
+						<p>新区新大陆，腾讯云高规格数据中心登陆欧洲板块</p>
+						<a>立即购买</a>
+					</div>
+				</div>
+				<div class="picture_area_five cucumber">
+					<div>
+						<h2>『云镜』重磅上线</h2>
+						<p>集检测、修复、防御为一体，全方位保障服务器安全</p>
+						<a>查看详情</a>
+					</div>
+				</div>
+				<ul id="list">
+					<li><a index='0' class="btn selected"></a></li>
+					<li><a index='1' class="btn"></a></li>
+					<li><a index='2' class="btn"></a></li>
+					<li><a index='3' class="btn"></a></li>
+					<li><a index='4' class="btn"></a></li>
+				</ul>
+				<a class="choice1"></a>
+				<a class="choice2"></a>
+				
+			</div>
 		</div>
 		
+		<div class="middle_one">
+			<div class="middle_one_core">
+			    <ul class="middle_one_core_list">
+			       <li class="middle_one_core_list1">
+			       	   <a href="">
+			           <div class="advertising_icon"></div>
+			           <div class="advertising_text">
+			           	<p>开发者实验室<i class="advertising_icon_new"></i></p>
+			           	<p class="advertising_content">做实验学编程</p>
+			           </div>
+			           </a>
+			       </li>
+			       <li class="middle_one_core_list1">
+			       	   <a href="">
+			           <div class="advertising_icon_two"></div>
+			           <div class="advertising_text">
+			           	<p>免费套餐<i class="advertising_icon_new"></i></p>
+			           	<p class="advertising_content">0门槛上云实践</p>
+			           </div>
+			           </a>
+			       </li>
+			       <li class="middle_one_core_list1">
+			       	   <a href="">
+			           <div class="advertising_icon_three"></div>
+			           <div class="advertising_text">
+			           	<p>+15元购.cn域名<i class="advertising_icon_new"></i></p>
+			           	<p class="advertising_content">新购服务器享.cn特价</p>
+			           </div>
+			           </a>
+			       </li>
+			       <li class="middle_one_core_list1">
+			       	   <a href="">
+			           <div class="advertising_icon_four"></div>
+			           <div class="advertising_text">
+			           	<p>云+未来峰会<i class="advertising_icon_new"></i></p>
+			           	<p class="advertising_content">北京站开发者专场</p>
+			           </div>
+			           </a>
+			       </li>
+			    </ul>
+			</div>
+		</div>
+		<div class="middle_two">
+		    <div class="middle_two_middle">
+		    	<div class="page_one">
+		    		<h2>在这里有你所需的一切</h2>
+		    		<p>存储、计算、监控、安全...你所需要的一切云产品，腾讯云均能以业界领先的水平为你提供</p>
+		    	</div>
+		    	<div class="page_two" id="page">
+		    	    <div class="mysteryone mysteryonee" id="mysteryone">
+		    	    	<div class="yyone">
+		    	    		<div class="yyoney">
+		    	    			<span></span>
+		    	    			<h3>计算</h3>
+		    	    		</div>
+		    	    		<div class="yyoneyy">
+		    	    		    <ul>
+		    	    			   <li>云服务器<span>优惠</span></li>
+		    	    			   <li>GPU云服务器<span>新品</span></li>
+		    	    			   <li>FPGA云服务器<span>新品</span></li>
+		    	    			   <li>专用宿主机</li>
+		    	    			   <li>...</li>
+		    	    		    </ul>
+		    	    		</div>
+		    	    	</div>
+		    	    	<div class="yyoneone">
+		    	    		<div class="tableone">
+		    	    			<span></span><h3>计算</h3>
+		    	    		</div>
+		    	    		<div class="tabletwo">
+		    	    			<ul>
+		    	    				<li class="listone">
+		    	    					<div class="listoneone">云服务器</div>
+		    	    					<div class="listonetwo">
+		    	    					   <div>
+		    	    					   	  <span>优惠</span>
+		    	    					   	  <a>立即选购</a>
+		    	    					   </div>
+		    	    					   <p>安全稳定，高弹性的计算服务</p>
+		    	    					</div>
+		    	    				</li>
+		    	    				<li class="listone">
+		    	    					<div class="listoneone">GPU云服务器</div>
+		    	    					<div class="listonetwo">
+		    	    					   <div>
+		    	    					   	  <span>新品</span>
+		    	    					   	  <a>立即选购</a>
+		    	    					   </div>
+		    	    					   <p>高密度计算服务器</p>
+		    	    					</div>
+		    	    				</li>
+		    	    				<li class="listone">
+		    	    					<div class="listoneone">FPGA云服务器</div>
+		    	    					<div class="listonetwo">
+		    	    					   <div>
+		    	    					   	  <span>新品</span>
+		    	    					   	  <a>立即选购</a>
+		    	    					   </div>
+		    	    					   <p>硬件加速计算服务</p>
+		    	    					</div>
+		    	    				</li>
+		    	    				<li class="listone">
+		    	    					<div class="listoneone">专用宿主机</div>
+		    	    					<div class="listonetwo">
+		    	    					   <div>
+		    	    					   	  <a>立即选购</a>
+		    	    					   </div>
+		    	    					   <p>独享云主机资源</p>
+		    	    					</div>
+		    	    				</li>
+		    	    				<a class="esc">更多产品</a>
+		    	    			</ul>
+		    	    		</div>
+		    	    	</div>
+		    	    </div>
+		    	    <div class="mysteryone" id="mysterytwo">
+		    	    	<div class="yyone">
+		    	    		<div class="yyoney">
+		    	    			<span style="background: url(https://imgcache.qq.com/open_proj/proj_qcloud_v2/gateway/portal/css/sprite/index-201703161500-svg.png);background-position: 50% 99.03999%;background-size: 531.25% 425%;background-repeat: no-repeat;"></span>
+		    	    			<h3>网络</h3>
+		    	    		</div>
+		    	    		<div class="yyoneyy">
+		    	    		    <ul>
+		    	    			   <li>负载均衡</li>
+		    	    			   <li>私有网络</li>
+		    	    			   <li>VPN连接</li>
+		    	    			   <li>专线接入</li>
+		    	    			   <li>...</li>
+		    	    		    </ul>
+		    	    		</div>
+		    	    	</div>
+		    	    	<div class="yyoneone">
+		    	    		<div class="tableone">
+		    	    			<span style="background: url(https://imgcache.qq.com/open_proj/proj_qcloud_v2/gateway/portal/css/sprite/index-201703161500-svg.png);background-position: 25.36% 99.03999%;background-size: 531.25% 425%;"></span><h3>网络</h3>
+		    	    		</div>
+		    	    		<div class="tabletwo">
+		    	    			<ul>
+		    	    				<li class="listone">
+		    	    					<div class="listoneone">负载均衡</div>
+		    	    					<div class="listonetwo">
+		    	    					   <div>
+		    	    					   	  
+		    	    					   	  <a>立即选购</a>
+		    	    					   </div>
+		    	    					   <p>对多台服务器进行流量分发</p>
+		    	    					</div>
+		    	    				</li>
+		    	    				<li class="listone">
+		    	    					<div class="listoneone">私有网络</div>
+		    	    					<div class="listonetwo">
+		    	    					   <div>
+		    	    					   	  <a>立即选购</a>
+		    	    					   </div>
+		    	    					   <p>独立隔离的网络空间</p>
+		    	    					</div>
+		    	    				</li>
+		    	    				<li class="listone">
+		    	    					<div class="listoneone">VPN连接</div>
+		    	    					<div class="listonetwo">
+		    	    					   <div>
+		    	    					   	  <a>立即选购</a>
+		    	    					   </div>
+		    	    					   <p>轻松构建IPsec VPN服务</p>
+		    	    					</div>
+		    	    				</li>
+		    	    				<li class="listone">
+		    	    					<div class="listoneone">专线接入</div>
+		    	    					<div class="listonetwo">
+		    	    					   <div>
+		    	    					   	  <a>立即选购</a>
+		    	    					   </div>
+		    	    					   <p>专用网络链路接入服务</p>
+		    	    					</div>
+		    	    				</li>
+		    	    				<a class="esc">更多产品</a>
+		    	    			</ul>
+		    	    		</div>
+		    	    	</div>
+		    	    </div>
+		    	    <div class="mysteryone" id="mysterytwo">
+		    	    	<div class="yyone">
+		    	    		<div class="yyoney">
+		    	    			<span style="background: url(https://imgcache.qq.com/open_proj/proj_qcloud_v2/gateway/portal/css/sprite/index-201703161500-svg.png);background-position: 0.72% 66.35%;background-size: 531.25% 425%;"></span>
+		    	    			<h3>存储与CDN</h3>
+		    	    		</div>
+		    	    		<div class="yyoneyy">
+		    	    		    <ul>
+		    	    			   <li>归档存储<span>新品</span></li>
+		    	    			   <li>文件存储<span>新品</span></li>
+		    	    			   <li>存储网关<span>新品</span></li>
+		    	    			   <li>动态加速网络<span>新品</span></li>
+		    	    			   <li>...</li>
+		    	    		    </ul>
+		    	    		</div>
+		    	    	</div>
+		    	    	<div class="yyoneone">
+		    	    		<div class="tableone">
+		    	    			<span style="background: url(https://imgcache.qq.com/open_proj/proj_qcloud_v2/gateway/portal/css/sprite/index-201703161500-svg.png);background-position: 50% 33.65%;background-size: 531.25% 425%;"></span><h3>存储与CDN</h3>
+		    	    		</div>
+		    	    		<div class="tabletwo">
+		    	    			<ul>
+		    	    				<li class="listone">
+		    	    					<div class="listoneone">归档存储</div>
+		    	    					<div class="listonetwo">
+		    	    					   <div>
+		    	    					   	  <span>新品</span>
+		    	    					   	  <a>立即选购</a>
+		    	    					   </div>
+		    	    					   <p>离线归档存储服务</p>
+		    	    					</div>
+		    	    				</li>
+		    	    				<li class="listone">
+		    	    					<div class="listoneone">文件存储</div>
+		    	    					<div class="listonetwo">
+		    	    					   <div>
+		    	    					   	  <span>新品</span>
+		    	    					   	  <a>立即选购</a>
+		    	    					   </div>
+		    	    					   <p>可共享的文件存储服务</p>
+		    	    					</div>
+		    	    				</li>
+		    	    				<li class="listone">
+		    	    					<div class="listoneone">存储网关</div>
+		    	    					<div class="listonetwo">
+		    	    					   <div>
+		    	    					   	  <span>新品</span>
+		    	    					   	  <a>立即选购</a>
+		    	    					   </div>
+		    	    					   <p>混合云存储服务</p>
+		    	    					</div>
+		    	    				</li>
+		    	    				<li class="listone">
+		    	    					<div class="listoneone">动态加速网络</div>
+		    	    					<div class="listonetwo">
+		    	    					   <div>
+		    	    					   	  <span>新品</span>
+		    	    					   	  <a>立即选购</a>
+		    	    					   </div>
+		    	    					   <p>动态请求加速服务</p>
+		    	    					</div>
+		    	    				</li>
+		    	    				<a class="esc">更多产品</a>
+		    	    			</ul>
+		    	    		</div>
+		    	    	</div>
+		    	    </div>
+		    	    <div class="mysteryone" id="mysterytwo">
+		    	    	<div class="yyone">
+		    	    		<div class="yyoney">
+		    	    			<span style="background: url(https://imgcache.qq.com/open_proj/proj_qcloud_v2/gateway/portal/css/sprite/index-201703161500-svg.png);background-position: 50% 66.35%;background-size: 531.25% 425%;"></span>
+		    	    			<h3>数据库</h3>
+		    	    		</div>
+		    	    		<div class="yyoneyy">
+		    	    		    <ul>
+		    	    			   <li>关系型数据库<span>优惠</span></li>
+		    	    			   <li>弹性缓存Redis<span>优惠</span></li>
+		    	    			   <li>文档数据库MongoDB<span>优惠</span></li>
+		    	    			   <li>分布式数据库<span>新品</span></li>
+		    	    			   <li>...</li>
+		    	    		    </ul>
+		    	    		</div>
+		    	    	</div>
+		    	    	<div class="yyoneone">
+		    	    		<div class="tableone">
+		    	    			<span style="background: url(https://imgcache.qq.com/open_proj/proj_qcloud_v2/gateway/portal/css/sprite/index-201703161500-svg.png);background-position: 25.36% 66.35%;background-size: 531.25% 425%;"></span><h3>数据库</h3>
+		    	    		</div>
+		    	    		<div class="tabletwo">
+		    	    			<ul>
+		    	    				<li class="listone">
+		    	    					<div class="listoneone">关系型数据库</div>
+		    	    					<div class="listonetwo">
+		    	    					   <div>
+		    	    					   	  <span>优惠</span>
+		    	    					   	  <a>立即选购</a>
+		    	    					   </div>
+		    	    					   <p>稳定托管的MySQL、MariaDB、PostgreSQL、SQLServer等</p>
+		    	    					</div>
+		    	    				</li>
+		    	    				<li class="listone">
+		    	    					<div class="listoneone">弹性缓存Redis</div>
+		    	    					<div class="listonetwo">
+		    	    					   <div>
+		    	    					   	  <span>优惠</span>
+		    	    					   	  <a>立即选购</a>
+		    	    					   </div>
+		    	    					   <p>兼容Redis协议的分布式缓存和存储服务</p>
+		    	    					</div>
+		    	    				</li>
+		    	    				<li class="listone">
+		    	    					<div class="listoneone">文档数据库MongoDB</div>
+		    	    					<div class="listonetwo">
+		    	    					   <div>
+		    	    					   	  <span>优惠</span>
+		    	    					   	  <a>立即选购</a>
+		    	    					   </div>
+		    	    					   <p>高性能分布式NoSQL数据库，100%完全兼容MongoDB协议</p>
+		    	    					</div>
+		    	    				</li>
+		    	    				<li class="listone">
+		    	    					<div class="listoneone">分布式数据库</div>
+		    	    					<div class="listonetwo">
+		    	    					   <div>
+		    	    					   	  <span>新品</span>
+		    	    					   	  <a>立即选购</a>
+		    	    					   </div>
+		    	    					   <p>兼容MySQL协议和语法。支持自动水平拆分的高性能分布式数据库</p>
+		    	    					</div>
+		    	    				</li>
+		    	    				<a class="esc">更多产品</a>
+		    	    			</ul>
+		    	    		</div>
+		    	    	</div>
+		    	    </div>
+		    	    <div class="mysteryone" id="mysterytwo">
+		    	    	<div class="yyone">
+		    	    		<div class="yyoney">
+		    	    			<span style="background: url(https://imgcache.qq.com/open_proj/proj_qcloud_v2/gateway/portal/css/sprite/index-201703161500-svg.png);background-position: 0.72% 0.96%;background-size: 531.25% 425%;"></span>
+		    	    			<h3>域名服务</h3>
+		    	    		</div>
+		    	    		<div class="yyoneyy">
+		    	    		    <ul>
+		    	    			   <li>域名注册<span>优惠</span></li>
+		    	    			   <li>云解析</li>
+		    	    			   <li>网站备案</li>
+		    	    			   <li>企业邮箱<span>内侧</span></li>
+		    	    			   <li>...</li>
+		    	    		    </ul>
+		    	    		</div>
+		    	    	</div>
+		    	    	<div class="yyoneone">
+		    	    		<div class="tableone">
+		    	    			<span style="background: url(https://imgcache.qq.com/open_proj/proj_qcloud_v2/gateway/portal/css/sprite/index-201703161500-svg.png);background-position: 74.64% 0.96%;background-size: 531.25% 425%;"></span><h3>域名服务</h3>
+		    	    		</div>
+		    	    		<div class="tabletwo">
+		    	    			<ul>
+		    	    				<li class="listone">
+		    	    					<div class="listoneone">域名注册</div>
+		    	    					<div class="listonetwo">
+		    	    					   <div>
+		    	    					   	  <span>优惠</span>
+		    	    					   	  <a>立即选购</a>
+		    	    					   </div>
+		    	    					   <p>专业域名服务，安心、省心、可信赖</p>
+		    	    					</div>
+		    	    				</li>
+		    	    				<li class="listone">
+		    	    					<div class="listoneone">云解析</div>
+		    	    					<div class="listonetwo">
+		    	    					   <div>
+		    	    					   	  <a>立即选购</a>
+		    	    					   </div>
+		    	    					   <p>向全网域名提供稳定、安全快速的只能解析服务</p>
+		    	    					</div>
+		    	    				</li>
+		    	    				<li class="listone">
+		    	    					<div class="listoneone">网站备案</div>
+		    	    					<div class="listonetwo">
+		    	    					   <div>
+		    	    					   	  <a>立即选购</a>
+		    	    					   </div>
+		    	    					   <p>备案备多久、云服务免费用多久</p>
+		    	    					</div>
+		    	    				</li>
+		    	    				<li class="listone">
+		    	    					<div class="listoneone">企业邮箱</div>
+		    	    					<div class="listonetwo">
+		    	    					   <div>
+		    	    					      <span>内测</span>
+		    	    					   	  <a>立即选购</a>
+		    	    					   </div>
+		    	    					   <p>提供最全面、最专业、专属定制的企业邮件服务</p>
+		    	    					</div>
+		    	    				</li>
+		    	    				<a class="esc">更多产品</a>
+		    	    			</ul>
+		    	    		</div>
+		    	    	</div>
+		    	    </div>
+		    	</div>
+		    </div>
+		</div>
+		<div class="middlewrap">
+			<div class="middlewrap_pic"></div>
+			<div class="middlewrap_con">
+				<div class="middlewrap_con_one">
+					<h2>在云端继续你的业务</h2>
+					<div>不管你处于什么行业，腾讯云已定制多套解决方案，助你轻松跨入“互联网+”时代</div>
+				</div>
+				<div class="middlewrap_con_two">
+					<div class="middlewrap_list">
+					    <ul>
+					    	<li><a class="button1">视频</a></li>
+					    	<li><a class="button1">游戏</a></li>
+					    	<li><a class="button1">医疗</a></li>
+					    	<li><a class="button1">金融</a></li>
+					    	<li><a class="button1">电商</a></li>
+					    	<li><a class="button1">O2O</a></li>
+					    	<li><a class="button1">微信</a></li>
+					    	<li><a class="button1">旅游</a></li>
+					    	<li><a class="button1">网站</a></li>
+					    	<li><a class="button1">智能硬件</a></li>
+					    </ul>
+					</div>
+					<div class="middlewrap_tt">
+					    <div class="list1 middlewrap_t1">
+					    	<ul class="pppp">
+					    		<li></li>
+					    		<li></li>
+					    		<li></li>
+					    		<li></li>
+					    		<li></li>
+					    		<li></li>
+					    	</ul>
+					    	<div class="middlewrap_t12">
+					    	    <div class="middlewrap_t2t"><img src="https://imgcache.qq.com/open_proj/proj_qcloud_v2/gateway/portal/css/img/home/solution/video/tit.png" /> </div>
+					    	    <div class="middlewrap_t2m">腾讯云为您的视频应用提供一站式解决方案。凭借直播点播、互动直播、云通信等产品，以及覆盖全国的视频发布网络、海量转码设备、数十年音视频领域深厚技术积淀，您可轻松具备全方位的视频能力支撑，全心专注于业务本身。</div>
+					    	    <a class="middlewrap_t2b">查看详情</a>
+					    	</div>
+					    </div>
+					    <div class="list1 middlewrap_t2">
+					    	<ul class="pppp">
+					    		<li id="apple1"></li>
+					    		<li id="apple2"></li>
+					    		<li id="apple3"></li>
+					    		<li id="apple4"></li>
+					    		<li id="apple5"></li>
+					    		<li id="apple6"></li>
+					    	</ul>
+					    	<div class="middlewrap_t22">
+					    	    <div class="middlewrap_t2t"><img src="https://imgcache.qq.com/open_proj/proj_qcloud_v2/gateway/portal/css/img/home/solution/game/tit.png" /> </div>
+					    	    <div class="middlewrap_t2m">腾讯云信心共享海量游戏运营经验，致力于打造高质量、全方位生态的游戏云服务平台。高可用，高性能的基础设施、丰富的游戏特色产品、大平台优质渠道资源、以及丰厚的专项扶持金，助力您的游戏业务腾飞。</div>
+					    	    <a class="middlewrap_t2b">查看详情</a>
+					    	</div>
+					    </div>
+					    <div class="list1 middlewrap_t2">
+					    	<ul class="pppp">
+					    		<li id="apple1"></li>
+					    		<li id="apple2"></li>
+					    		<li id="apple3"></li>
+					    		<li id="apple4"></li>
+					    		<li id="apple5"></li>
+					    		<li id="apple6"></li>
+					    	</ul>
+					    	<div class="middlewrap_t22">
+					    	    <div class="middlewrap_t2t"><img src="https://imgcache.qq.com/open_proj/proj_qcloud_v2/gateway/portal/css/img/home/solution/game/tit.png" /> </div>
+					    	    <div class="middlewrap_t2m">腾讯云信心共享海量游戏运营经验，致力于打造高质量、全方位生态的游戏云服务平台。高可用，高性能的基础设施、丰富的游戏特色产品、大平台优质渠道资源、以及丰厚的专项扶持金，助力您的游戏业务腾飞。</div>
+					    	    <a class="middlewrap_t2b">查看详情</a>
+					    	</div>
+					    </div>
+					    <div class="list1 middlewrap_t2">
+					    	<ul class="pppp">
+					    		<li id="apple1"></li>
+					    		<li id="apple2"></li>
+					    		<li id="apple3"></li>
+					    		<li id="apple4"></li>
+					    		<li id="apple5"></li>
+					    		<li id="apple6"></li>
+					    	</ul>
+					    	<div class="middlewrap_t22">
+					    	    <div class="middlewrap_t2t"><img src="https://imgcache.qq.com/open_proj/proj_qcloud_v2/gateway/portal/css/img/home/solution/game/tit.png" /> </div>
+					    	    <div class="middlewrap_t2m">腾讯云信心共享海量游戏运营经验，致力于打造高质量、全方位生态的游戏云服务平台。高可用，高性能的基础设施、丰富的游戏特色产品、大平台优质渠道资源、以及丰厚的专项扶持金，助力您的游戏业务腾飞。</div>
+					    	    <a class="middlewrap_t2b">查看详情</a>
+					    	</div>
+					    </div>
+					    <div class="list1 middlewrap_t2">
+					    	<ul class="pppp">
+					    		<li id="apple1"></li>
+					    		<li id="apple2"></li>
+					    		<li id="apple3"></li>
+					    		<li id="apple4"></li>
+					    		<li id="apple5"></li>
+					    		<li id="apple6"></li>
+					    	</ul>
+					    	<div class="middlewrap_t22">
+					    	    <div class="middlewrap_t2t"><img src="https://imgcache.qq.com/open_proj/proj_qcloud_v2/gateway/portal/css/img/home/solution/game/tit.png" /> </div>
+					    	    <div class="middlewrap_t2m">腾讯云信心共享海量游戏运营经验，致力于打造高质量、全方位生态的游戏云服务平台。高可用，高性能的基础设施、丰富的游戏特色产品、大平台优质渠道资源、以及丰厚的专项扶持金，助力您的游戏业务腾飞。</div>
+					    	    <a class="middlewrap_t2b">查看详情</a>
+					    	</div>
+					    </div>
+					    <div class="list1 middlewrap_t2">
+					    	<ul class="pppp">
+					    		<li id="apple1"></li>
+					    		<li id="apple2"></li>
+					    		<li id="apple3"></li>
+					    		<li id="apple4"></li>
+					    		<li id="apple5"></li>
+					    		<li id="apple6"></li>
+					    	</ul>
+					    	<div class="middlewrap_t22">
+					    	    <div class="middlewrap_t2t"><img src="https://imgcache.qq.com/open_proj/proj_qcloud_v2/gateway/portal/css/img/home/solution/game/tit.png" /> </div>
+					    	    <div class="middlewrap_t2m">腾讯云信心共享海量游戏运营经验，致力于打造高质量、全方位生态的游戏云服务平台。高可用，高性能的基础设施、丰富的游戏特色产品、大平台优质渠道资源、以及丰厚的专项扶持金，助力您的游戏业务腾飞。</div>
+					    	    <a class="middlewrap_t2b">查看详情</a>
+					    	</div>
+					    </div>
+					    <div class="list1 middlewrap_t2">
+					    	<ul class="pppp">
+					    		<li id="apple1"></li>
+					    		<li id="apple2"></li>
+					    		<li id="apple3"></li>
+					    		<li id="apple4"></li>
+					    		<li id="apple5"></li>
+					    		<li id="apple6"></li>
+					    	</ul>
+					    	<div class="middlewrap_t22">
+					    	    <div class="middlewrap_t2t"><img src="https://imgcache.qq.com/open_proj/proj_qcloud_v2/gateway/portal/css/img/home/solution/game/tit.png" /> </div>
+					    	    <div class="middlewrap_t2m">腾讯云信心共享海量游戏运营经验，致力于打造高质量、全方位生态的游戏云服务平台。高可用，高性能的基础设施、丰富的游戏特色产品、大平台优质渠道资源、以及丰厚的专项扶持金，助力您的游戏业务腾飞。</div>
+					    	    <a class="middlewrap_t2b">查看详情</a>
+					    	</div>
+					    </div>
+					    <div class="list1 middlewrap_t2">
+					    	<ul class="pppp">
+					    		<li id="apple1"></li>
+					    		<li id="apple2"></li>
+					    		<li id="apple3"></li>
+					    		<li id="apple4"></li>
+					    		<li id="apple5"></li>
+					    		<li id="apple6"></li>
+					    	</ul>
+					    	<div class="middlewrap_t22">
+					    	    <div class="middlewrap_t2t"><img src="https://imgcache.qq.com/open_proj/proj_qcloud_v2/gateway/portal/css/img/home/solution/game/tit.png" /> </div>
+					    	    <div class="middlewrap_t2m">腾讯云信心共享海量游戏运营经验，致力于打造高质量、全方位生态的游戏云服务平台。高可用，高性能的基础设施、丰富的游戏特色产品、大平台优质渠道资源、以及丰厚的专项扶持金，助力您的游戏业务腾飞。</div>
+					    	    <a class="middlewrap_t2b">查看详情</a>
+					    	</div>
+					    </div>
+					    <div class="list1 middlewrap_t2">
+					    	<ul class="pppp">
+					    		<li id="apple1"></li>
+					    		<li id="apple2"></li>
+					    		<li id="apple3"></li>
+					    		<li id="apple4"></li>
+					    		<li id="apple5"></li>
+					    		<li id="apple6"></li>
+					    	</ul>
+					    	<div class="middlewrap_t22">
+					    	    <div class="middlewrap_t2t"><img src="https://imgcache.qq.com/open_proj/proj_qcloud_v2/gateway/portal/css/img/home/solution/game/tit.png" /> </div>
+					    	    <div class="middlewrap_t2m">腾讯云信心共享海量游戏运营经验，致力于打造高质量、全方位生态的游戏云服务平台。高可用，高性能的基础设施、丰富的游戏特色产品、大平台优质渠道资源、以及丰厚的专项扶持金，助力您的游戏业务腾飞。</div>
+					    	    <a class="middlewrap_t2b">查看详情</a>
+					    	</div>
+					    </div>
+					    <div class="list1 middlewrap_t2">
+					    	<ul class="pppp">
+					    		<li id="apple1"></li>
+					    		<li id="apple2"></li>
+					    		<li id="apple3"></li>
+					    		<li id="apple4"></li>
+					    		<li id="apple5"></li>
+					    		<li id="apple6"></li>
+					    	</ul>
+					    	<div class="middlewrap_t22">
+					    	    <div class="middlewrap_t2t"><img src="https://imgcache.qq.com/open_proj/proj_qcloud_v2/gateway/portal/css/img/home/solution/game/tit.png" /> </div>
+					    	    <div class="middlewrap_t2m">腾讯云信心共享海量游戏运营经验，致力于打造高质量、全方位生态的游戏云服务平台。高可用，高性能的基础设施、丰富的游戏特色产品、大平台优质渠道资源、以及丰厚的专项扶持金，助力您的游戏业务腾飞。</div>
+					    	    <a class="middlewrap_t2b">查看详情</a>
+					    	</div>
+					    </div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="middle_next">
+			<div class="middle_middle">
+				<div class="middle_nextone">
+					<h2>你的成功可以覆盖全球</h2>
+			        <div>全球领先的云计算加速平台，让你的用户无论身在何处，均能获得灵活流畅的体验</div>
+			        <a>了解更多</a>
+				</div>
+				<div class="middle_nexttwo">
+					<ul>
+						<li></li>
+						<li></li>
+						<li></li>
+					</ul>
+				</div>
+				<div class="middle_nextthree"></div>
+			</div>
+		</div>
+		<div class="middle_last">
+			<a>
+				<span>腾讯云天御已为用户抵御恶意攻击</span>
+				<div>1,245,237,430次/周</div>
+			</a>
+		</div>
+		<div class="bottom_top">
+			<div class="bottom_top_wrap">
+				<div class="bottom_innerone">
+					<h2>更多的选择给你更大的可能性</h2>
+					<p>腾讯云服务市场联合第三方服务供应商，以更多的选择满足你业务全面的需求</p>
+				</div>
+				<div class="botton_innertwo">
+					<div class="b_one">
+						<a>
+							<div>
+								<img src="https://mc.qcloudimg.com/static/img/5978630917a2b3c9e00b4112437e5262/image.png"/>
+								<p>镜像服务</p>
+								<p>基础环境 / 全能环境 / 管理与监控<br>建站模板 / 安全高可用 / Docker容器 / 业务管理</p>
+							</div>
+						</a>
+					</div>
+					<div class="b_two b_one">
+						<a>
+							<div>
+								<img src="https://mc.qcloudimg.com/static/img/1e2bf4a17c65467e751f02507d369d54/image.png"/>
+								<p>软件服务</p>
+								<p>安全软件 / 网络监控 / 商业软件<br>管理工具 / 建站系统 / 企业办公 / 消息服务</p>
+							</div>
+						</a>
+					</div>
+					<div class="b_three b_one">
+						<a>
+							<div>
+								<img src="https://mc.qcloudimg.com/static/img/eba1a9ce208bc07f0d6bcd6752c569b7/image.png"/>
+								<p>运维服务</p>
+								<p>数据迁移 / 故障排查 / 安全代维<br>日常代维 / Discuz代维 / 环境搭建</p>
+							</div>
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="bottom_next">
+			<div class="bottom_next_inner">
+				<div class="bottom_next_innerone">
+					<h2>为你提供安全合规的云计算服务</h2>
+					<p>腾讯云通过国内外权威标准的合规认证，给你安全性和合规性的保证</p>
+				</div>
+				<div class="bottom_next_innertwo">
+					<div class="wisdom">
+						<a></a>
+						<a></a>
+						<div class="wisdomdiv">
+							<div class="bottom_list">
+								<a>
+									<div class="wisdom_nei">
+										<img src="https://mc.qcloudimg.com/static/img/a8d44c0da8790c93d45376cad6119de8/image.png" />
+										<p>CDN经营许可证</p>
+										<p> 增值电信业务国家认证标准 </p>
+									</div>
+								</a>
+							</div>
+							<div class="bottom_list">
+								<a>
+									<div class="wisdom_nei">
+										<img src="https://imgcache.qq.com//open_proj/proj_qcloud_v2/gateway/portal/css/img/home/certification-1.png" />
+										<p>ISO 27001</p>
+										<p> 信息安全管理体系国际认证标准  </p>
+									</div>
+								</a>
+							</div>
+							<div class="bottom_list">
+								<a>
+									<div class="wisdom_nei">
+										<img src="https://imgcache.qq.com//open_proj/proj_qcloud_v2/gateway/portal/css/img/home/certification-5.png" />
+										<p>可信云服务认证</p>
+										<p> 云服务质量评估体系权威认证 </p>
+									</div>
+								</a>
+							</div>
+							<div class="bottom_list">
+								<a>
+									<div class="wisdom_nei">
+										<img src="https://imgcache.qq.com//open_proj/proj_qcloud_v2/gateway/portal/css/img/home/certification-6.png" />
+										<p>信息安全等级保护</p>
+										<p> 国家信息系统安全等级保护测评认证 </p>
+									</div>
+								</a>
+							</div>
+							<div class="bottom_list">
+								<a>
+									<div class="wisdom_nei">
+										<img src="https://imgcache.qq.com//open_proj/proj_qcloud_v2/gateway/portal/css/img/home/certification-7.png" />
+										<p>大数据产品能力认证</p>
+										<p> 2016年第一批大数据产品能力认证  </p>
+									</div>
+								</a>
+							</div>
+							<div class="bottom_list">
+								<a>
+									<div class="wisdom_nei">
+										<img src="https://imgcache.qq.com//open_proj/proj_qcloud_v2/gateway/portal/css/img/home/certification-3.png" />
+										<p>ISO 20000</p>
+										<p> 信息技术服务管理体系国际认证标准  </p>
+									</div>
+								</a>
+							</div>
+							<div class="bottom_list">
+								<a>
+									<div class="wisdom_nei">
+										<img src="https://imgcache.qq.com//open_proj/proj_qcloud_v2/gateway/portal/css/img/home/certification-4.png" />
+										<p>ISO 9001</p>
+										<p> 质量管理体系国际认证标准 </p>
+									</div>
+								</a>
+							</div>
+							<div class="bottom_list">
+								<a>
+									<div class="wisdom_nei">
+										<img src="https://mc.qcloudimg.com/static/img/7ac9cbfdb476ccf0ffaae0e8d9ff555c/image.jpg" />
+										<p>CSA STAR</p>
+										<p> 云安全联盟国际专业认证  </p>
+									</div>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="last_bottom">
+			<div class="lb_one">
+    <div class="lb">
+        <div class="lblb">
+            <div class="lb_list">
+                <a class="item" target="_blank">
+                    <span class="icon icon-1"></span>
+                    <span class="term">百倍故障赔偿</span>
+                </a>
+            </div>
+            <div class="lb_list">
+                <a class="item" target="_blank">
+                    <span class="icon icon-2"></span>
+                    <span class="term">5天无理由退款</span>
+                </a>
+            </div>
+            <div class="lb_list">
+                <a class="item" target="_blank">
+                    <span class="icon icon-3"></span>
+                    <span class="term">备案多久送多久</span>
+                </a>
+            </div>
+            <div class="lb_list">
+                <a class="item" target="_blank">
+                    <span class="icon icon-4"></span>
+                    <span class="term">1V1大客户服务</span>
+                </a>
+            </div>
+            <div class="lb_list lb_last">
+                <a class="item" target="_blank">
+                    <span class="icon icon-5"></span>
+                    <span class="term">7x24小时服务</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+			
+		</div>
+		<div class="last"></div>
+		<div class="ppap" style="display: none; width: 500px;height: 500px;background: red;" data-config='{
+			         "triggerType":"click",
+			         "effect":"default",
+			         "invoke":"2",
+			         "auto":"false"
+		             }'>
 		
+		</div>
+		<style type="text/css">
+			.lb_list a:hover{
+				color: bisque
+			}
+			.last{
+				background: url(http://www.gedeon.com/admin/wp-content/uploads/2017/07/JOY_MOSAIQUE.jpg);
+				height: 1430px;
+				background-size: cover;
+				background-repeat: no-repeat;
+			}
+			.lb_two{
+				background-color: #2e3033;
+			}
+			.lb_last{
+				width: 14%!important;
+			}
+			.lb_list a .icon-5{
+				background-image: url(https://imgcache.qq.com/open_proj/proj_qcloud_v2/gateway/portal/css/sprite/global-201708101522.svg);
+				background-position: 83.54% 63.44%;
+				background-size: 612.5% 553.125%;
+				background-repeat: no-repeat;
+				display: inline-block;
+				width: 32px;
+				height: 32px;
+				vertical-align: middle;
+				margin-right: 10px;
+			}
+			.lb_list a .icon-4{
+				background-image: url(https://imgcache.qq.com/open_proj/proj_qcloud_v2/gateway/portal/css/sprite/global-201708101522.svg);
+				background-position: 42.07% 63.44%;
+				background-size: 612.5% 553.125%;
+				background-repeat: no-repeat;
+				display: inline-block;
+				width: 32px;
+				height: 32px;
+				vertical-align: middle;
+				margin-right: 10px;
+			}
+			.lb_list a .icon-3{
+				background-image: url(https://imgcache.qq.com/open_proj/proj_qcloud_v2/gateway/portal/css/sprite/global-201708101522.svg);
+				background-position: 0.61% 63.44%;
+				background-size: 612.5% 553.125%;
+				background-repeat: no-repeat;
+				display: inline-block;
+				width: 32px;
+				height: 32px;
+				vertical-align: middle;
+				margin-right: 10px;
+			}
+			.lb_list a .icon-2{
+				background-image: url(https://imgcache.qq.com/open_proj/proj_qcloud_v2/gateway/portal/css/sprite/global-201708101522.svg);
+				background-position: 62.8% 86.9%;
+				background-size: 612.5% 553.125%;
+				background-repeat: no-repeat;
+				display: inline-block;
+				width: 32px;
+				height: 32px;
+				vertical-align: middle;
+				margin-right: 10px;
+			}
+			.lb_list a .icon-1{
+				background-image: url(https://imgcache.qq.com/open_proj/proj_qcloud_v2/gateway/portal/css/sprite/global-201708101522.svg);
+				background-position: 62.8% 63.44%;
+				background-size: 612.5% 553.125%;
+				background-repeat: no-repeat;
+				display: inline-block;
+				width: 32px;
+				height: 32px;
+				vertical-align: middle;
+				margin-right: 10px;
+			}
+			.lb_list a{
+				font-size: 14px;
+				color: #fff;
+				text-align: left;
+			}
+			.lb_list{
+				display: inline-block;
+				width: 21.5%;
+				vertical-align: top;
+				text-align: center;
+			}
+			.lblb{
+				font-size: 0;
+				padding:0 10px;
+				text-align: center;
+			}
+			.lb{
+				height: 32px;
+				max-width: 1200px;
+				font-size: 0;
+				margin: 0 auto;
+				text-align: center;
+				padding: 30px 0;
+				border-bottom:1px solid #45484c;
+				display: block;
+			}
+			.lb_one{
+				height: 93px;
+				background-color: #2e3033;
+			}
+		  
+			.bottom_list a:hover{
+				box-shadow: 0 3px 20px rgba(0,0,0,.1);
+				transform: translate3d(0,-2px,0);
+			}
+			.bottom_list a{
+				transition: all .2s linear; 
+			}
+			.wisdom_nei p:nth-child(3){
+				font-size: 14px;
+				color: #666;
+				line-height: 30px;
+				text-align: center;
+			}
+			.wisdom_nei p:nth-child(2){
+				color: #333;
+				font-size: 18px;
+				margin-bottom: 5px;
+				text-align: center;
+			}
+			.wisdom_nei img{
+				display: block;
+				margin: 0 auto 15px;
+			}
+			.wisdom_nei{
+				padding-top: 30px;
+				height: 117px;
+			}
+			
+			.bottom_list a{
+				border: 1px solid #dbdbdb;
+				display: block;
+				transition: all .2s;
+				height: 200px;
+			}
+			.bottom_list{
+				display: inline-block;
+				width: 300px;
+				vertical-align: top;
+				padding: 0 10px;
+				margin-bottom: 20px;
+				box-sizing: border-box;
+				height: 202px;
+			}
+			.wisdomdiv{
+				height: 221px;
+				width: 10000px;
+				padding-top: 6px;
+				position: absolute;
+				left: 0;
+				right: 0;
+			}
+			.wisdom{
+				overflow: hidden;
+				height: 208px;
+				position: relative;
+			}
+			.bottom_next_innertwo{
+				margin-top: 55px;
+				font-size: 0;
+				height: 256px;
+			}
+			.bottom_next_innerone p{
+				font-size: 18px;
+				line-height: 1.5em;
+			}
+			.bottom_next_innerone h2{
+				font-size: 30px;
+				font-weight: 400;
+				margin-bottom: 10px;
+			}
+			.bottom_next_inner{
+				margin: 0 auto;
+				width: 1200px;
+				height: 386px;
+			}
+			.bottom_next{
+				height: 586px;
+				padding: 100px 0;
+			}
+			.b_one a:hover{
+				box-shadow: 0 3px 20px rgba(0,0,0,.1);
+				transform:translate3d(0,-2px,0)
+			}
+			.b_one a div p:nth-child(3){
+				text-align: center;
+				line-height: 24px;
+				color: #666;
+				font-size: 14px;
+			}
+			.b_one a div p:nth-child(2){
+				font-size: 18px;
+				color: #333;
+				margin-bottom: 5px;
+				text-align: center;
+			}
+			
+			
+			.b_one a div img{
+				display: block;
+				margin: 0 auto 10px;
+				width: 144px;
+				height: 100px;
+				border: 1px solid black;
+				border-style: none;
+			}
+			.b_one a div{
+				padding: 25px 0;
+			}
+			.b_one a{
+				border: none;
+				
+				background: #fff;
+				transition: all .2s; 
+				display: block;
+			}
+			
+			.b_one{
+				vertical-align: top;
+				display: inline-block;
+				padding: 0 10px;
+				width: 33.3%;
+				box-sizing: border-box;
+				font-size: 0;
+			}
+			.botton_innertwo{
+				font-size: 0;
+				margin-top: 60px;
+			}
+			.bottom_innerone p{
+				font-size: 18px;
+				line-height: 1.5em;
+			}
+			.bottom_innerone h2{
+				font-size: 30px;
+				font-weight: 400;
+				margin-bottom: 10px;
+				display: block;
+			}
+			.bottom_top_wrap{
+				margin: 0 auto;
+				width: 1200px;
+				height: 371px;
+			}
+			.bottom_top{
+				padding: 100px 0;
+				height: 571px;
+				background: url(https://imgcache.qq.com/open_proj/proj_qcloud_v2/gateway/portal/css/img/home/mod-bg.png);
+				width: 100%;
+			}
+			.middle_last a div{
+				color: #fff;
+				letter-spacing: .1em;
+				display: inline-block;
+				vertical-align: top;
+				font-size: 70px;
+				line-height: 130px;
+				text-align: right;
+			}
+			.middle_last a span{
+				display: inline-block;
+				vertical-align: top;
+				font-size: 24px;
+				color: #fff;
+				line-height: 130px;
+				width: 30.5%;
+				text-align: left;
+			}
+			.middle_last a{
+				display: block;
+				width: 1200px;
+				margin: 0 10px;
+				box-sizing: border-box;
+				margin: 0 auto;
+			}
+			.middle_last{
+				width: 100%;
+				height: 130px;
+				background: url(https://imgcache.qq.com/open_proj/proj_qcloud_v2/gateway/portal/css/img/home/dynamic-bg.jpg);
+			}
+			.middle_middle{
+				position: relative;
+			}
+			.middle_nextthree{
+				width: 100%;
+				background: url(https://imgcache.qq.com/open_proj/proj_qcloud_v2/gateway/portal/css/img/home/earth.png);
+				max-width: 80%;
+				
+				height: 100%;
+				background-repeat: no-repeat;
+				position: absolute;
+				top: 25px;
+				right: 0;
+				font-size: 0;
+				text-align: right;
+			}
+			.middle_nexttwo li:nth-child(1){
+				display: block;
+				width: 164px;
+				height: 96px;
+				background: url(https://imgcache.qq.com/open_proj/proj_qcloud_v2/gateway/portal/css/img/home/map-1.png);
+				margin-bottom: 44px;
+			}
+			.middle_nexttwo li:nth-child(2){
+				display: block;
+				width: 164px;
+				height: 96px;
+				background: url(https://imgcache.qq.com/open_proj/proj_qcloud_v2/gateway/portal/css/img/home/map-2.png);
+				margin-bottom: 44px;
+			}
+			.middle_nexttwo li:nth-child(3){
+				display: block;
+				width: 164px;
+				height: 96px;
+				background: url(https://imgcache.qq.com/open_proj/proj_qcloud_v2/gateway/portal/css/img/home/map-3.png);
+				margin-bottom: 44px;
+			}
+			.middle_nexttwo{
+				margin-top: 8.4%;
+				overflow: hidden;
+				margin-left: 10px;
+				margin-right: 10px;
+			}
+			.middle_nextone a:hover{
+				color: #fff;
+				background: #2277d9;
+				border: 1px solid #2277d9;
+			}
+			.middle_nextone a{
+				width: 180px;
+				height: 45px;
+				display: block;
+				line-height: 45px;
+				font-size: 18px;
+				margin-top: 35px;
+				padding: 0 20px;
+				cursor: pointer;
+				border: 1px solid black;
+				text-align: center;
+				border-radius: 2px;
+				transition:  background-color .15s
+			}
+			.middle_nextone{
+				font-size: 18px;
+				line-height: 1.5em;
+			}
+			.middle_nextone h2{
+				font-size: 30px;
+				font-weight: 400;
+				margin-bottom: 10px;
+			}
+			.middle_nextone{
+				padding-top: 95px;
+				margin: 0 10px;
+				
+			}
+		    .middle_middle{
+		    	margin: 0 auto;
+		    	width: 1200px;
+		    	height: 858.8px;
+		    }
+		</style>
+		<script src="../js/tan.js"></script>
 		<script>
 			
+			
+				var tab1 = new Tab($('.ppap'));
+		
+//			var btn = document.getElementById('btn');
+//			btn.onclick = function(){
+//				
+//				document.querySelector('.wisdomdiv').style.left = '-'+ 1200 + 'px';
+//				
+//			}
+			var picarr = [' apple',' pineapple',' pineapple',' pineapple',' pineapple',' pineapple',' pineapple',' pineapple',' pineapple',' pineapple']
+			function listcircle(){
+				for(var j =0;j<list1.length;j++){
+					list1[j].style.display = 'none'
+				}
+			}
+			var button1 = document.querySelectorAll('.button1');
+			var list1 =document.querySelectorAll('.list1');
+			for(var i = 0;i < button1.length;i++){
+				button1[i].onmouseover = (function(i){
+					return function(){
+						for(var j = 0;j<button1.length;j++){
+							button1[j].style.backgroundColor = '';
+						}
+						button1[i].style.backgroundColor = '#2277da';
+						document.querySelector('.middlewrap_pic').className = 'middlewrap_pic';
+						document.querySelector('.middlewrap_pic').className += picarr[i];
+					listcircle();
+					
+					list1[i].style.display = 'block'
+					};
+				})(i)
+				button1[i].onclick = (function(i){
+					return function(){
+						document.querySelector('.middlewrap_pic').className = 'middlewrap_pic';
+						document.querySelector('.middlewrap_pic').className += picarr[i];
+					listcircle();
+					
+					list1[i].style.display = 'block'
+					};
+				})(i)
+			};
+			var page = document.getElementsByClassName('mysteryone');
+			for(var i = 0;i<page.length;i++){
+            page[i].onmouseenter = function(e){
+            	
+            	for(var j = 0;j<page.length;j++){
+           	page[j].className = 'mysteryone';
+           	}
+           	this.className += ' mysteryonee'
+           }
+           }
+            
+            
+            
+           
+			var btn = document.getElementsByClassName('btn');
+			var folder = document.getElementById('folder');
+			folder.onmouseover = function(){
+				folder.className += ' folder_one'
+			}
+			folder.onmouseout = function(){
+				folder.className = 'folder'
+			}
+			var cucumber = document.querySelectorAll('.cucumber');
+			var i = 1;
+			function abc(){
+				i++;
+			};
+			function bca(){
+				i--;
+			};
+			function rightlunbo(){
+				btn[i].className += ' selected';
+				if(i==0){
+					btn[4].className = 'btn';
+				};
+				if(i>=1){
+				btn[i-1].className = 'btn';
+				}
+			}
+
+			function leftlunbo(){
+				if(i==1){
+					btn[0].className = 'btn';
+					btn[4].className += ' selected';
+				}else if(i>1){
+				btn[i-2].className += ' selected';
+				btn[i-1].className = 'btn';
+				}
+			};
+			function rightBtn(){
+				if(i==5){
+					cucumber[i-1].style.zIndex = '';
+					i=0;
+				};
+				cucumber[i].style.zIndex = '1';
+				if(i>=1){
+				cucumber[i-1].style.zIndex = ''
+				};
+				rightlunbo();
+				abc();
+				if(i==6){
+					i--;
+				}
+			};
+			function leftBtn(){
+				leftlunbo();
+				if(i==1){
+					i=6;
+					cucumber[0].style.zIndex = '';
+				}
+				cucumber[i-2].style.zIndex = '1';
+				if(i<=5){
+			    cucumber[i-1].style.zIndex = '';
+			  };
+			    bca();
+			}
+			var list = document.querySelector('.picture_area');
+			var listt = document.getElementsByClassName('cucumber');
+			for(var j = 0 ; j < btn.length ; j++){
+//				btn[i].index = i;
+				btn[j].onclick = function(e){
+					
+					for(var z = 0 ; z < btn.length ; z++){
+					btn[z].setAttribute('class','btn');
+					listt[z].setAttribute('style','');
+					};
+					i = this.getAttribute('index');
+					rightBtn();
+				}
+			}
+		
+			document.querySelector('.choice2').onclick = function(){
+//				clearInterval(timer);
+				rightBtn();
+			}
+			
+			document.querySelector('.choice1').onclick = function(){
+//				clearInterval(timer);
+				leftBtn()
+			}
+			
+			var timer = setInterval(rightBtn,2000);
 		</script>
 	</body>
 </html>
- 
